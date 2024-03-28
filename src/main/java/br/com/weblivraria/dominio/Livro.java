@@ -1,13 +1,14 @@
 package br.com.weblivraria.dominio;
-
+ 
 public class Livro {
 	private Integer idlivro;
 	private String titulo;
 	private String genero;
 	private String sinopse;
 	private String autor;
-	private String preco;
+	private Double preco;
 	private String capa;
+	
 	public Integer getIdlivro() {
 		return idlivro;
 	}
@@ -38,10 +39,10 @@ public class Livro {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	public String getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(String preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 	public String getCapa() {
@@ -50,6 +51,4 @@ public class Livro {
 	public void setCapa(String capa) {
 		this.capa = capa;
 	}
-	
-
 }
