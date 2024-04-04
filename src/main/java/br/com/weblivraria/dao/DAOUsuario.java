@@ -77,13 +77,13 @@ public class DAOUsuario extends Conexao implements CRUDUsuario<Usuario> {
 				
 				while(rs.next()) {
 				Usuario us = new Usuario();
-				us.setIdusuario(rs.getInt(0));
-				us.setNomeusuario(rs.getString(1));
-				us.setSenha(rs.getString(2));
-				us.setEmail(rs.getString(3));
-				us.setTelefone(rs.getString(4));
-				us.setNomecompleto(rs.getString(5));
-				us.setCpf(rs.getString(6));
+				us.setIdusuario(rs.getInt(1));
+				us.setNomeusuario(rs.getString(2));
+				us.setSenha(rs.getString(3));
+				us.setEmail(rs.getString(4));
+				us.setTelefone(rs.getString(5));
+				us.setNomecompleto(rs.getString(6));
+				us.setCpf(rs.getString(7));
 				
 				lista.add(us);
 				
@@ -129,13 +129,13 @@ public class DAOUsuario extends Conexao implements CRUDUsuario<Usuario> {
 				
 				if(rs.next()) {
 					
-					us.setIdusuario(rs.getInt(0));
-					us.setNomeusuario(rs.getString(1));
-					us.setSenha(rs.getString(2));
-					us.setEmail(rs.getString(3));
-					us.setTelefone(rs.getString(4));
-					us.setNomecompleto(rs.getString(5));
-					us.setCpf(rs.getString(6));
+					us.setIdusuario(rs.getInt(1));
+					us.setNomeusuario(rs.getString(2));
+					us.setSenha(rs.getString(3));
+					us.setEmail(rs.getString(4));
+					us.setTelefone(rs.getString(5));
+					us.setNomecompleto(rs.getString(6));
+					us.setCpf(rs.getString(7));
 				
 					
 				
@@ -168,7 +168,7 @@ public class DAOUsuario extends Conexao implements CRUDUsuario<Usuario> {
 			// verificar a conexão com o banco de dados foi aberta
 			// Caso tenha sido aberta iremos execultar os comando de Mysql para cadastro do usuario se não iremos exibir uma mensagem para o usuario que não foi possivel estabelecer comunicação com o banco de dados 
 			if(abrirConexao()) {
-				String sql = "update usuario set nomeusuario=?,email=?,telefone=?,nomecompleto=?, where idusuario=?";
+				String sql = "update usuario set nomeusuario=?,email=?,telefone=?,nomecompleto=? where idusuario=?";
 				// preparar a consulta pra ser execultada
 				pst = con.prepareStatement(sql);
 				//passagem dos dados aos parametros da consulta, ou seja, cada ponto de interrogação ira receber um dado correspondente a um campo da tabela 
