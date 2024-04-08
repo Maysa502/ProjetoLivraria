@@ -298,7 +298,7 @@ public class Home extends HttpServlet {
 				+ "        </div>\r\n"
 				+ "\r\n"
 				+ "        <div id=\"copy\">\r\n"
-				+ "            ©Copyright-todos os direitos reservados | desing by <a href=\"https://github.com/Maysa502/ProjetoLivraria">Maysa Arruda</a></div>\r\n"
+				+ "            ©Copyright-todos os direitos reservados | desing by <a href=\"https://github.com/Maysa502/ProjetoLivraria\">Maysa Arruda</a></div>\r\n"
 				+ "\r\n"
 				+ "\r\n"
 				+ "\r\n"
