@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-<style>
-    /* css -> cadascade style */
+ 
+<Style>
+    /* css->Cascade style sheet(cascata estilo folha) */
     body{
         text-align: center;
     }
-    image{
-        width: 50px;
-        height:50px;
+    img{
+        width: 100px;
+        height: 100px;
         margin: 20px;
     }
     form{
@@ -21,7 +21,7 @@
         margin-right: auto;
     }
     label{
-        font-family: Verdana;
+        font-family: verdana;
         font-size: 11pt;
         font-weight: bold;
         display: block;
@@ -34,37 +34,40 @@
         margin-bottom: 20px;
     }
     input[type=submit]{
-        background-color: rgb(6, 36, 6);
-        color: antiquewhite;
+        background-color: blanchedalmond;
+        color: black;
         width: 150px;
-        font-family: Verdana;
+        font-family: verdana;
         font-size: 12pt;
         margin-left: auto;
         margin-right: auto;
         border: 0px;
         cursor: pointer;
-   }
-   a{
-    font-family: Verdana;
-    text-decoration: none;
-    color:darkolivegreen;
-    font-size: 8pt;
-    font-weight: bold;
-   }
-    
-</style>
+    }
+    a{
+        font-family: verdana;
+        text-decoration: none;
+        color: blue;
+        text-transform: uppercase;
+        font-size: 8pt;
+        font-weight: bold;
+    }
+ 
+</Style>
+ 
 </head>
 <body>
     <img src="usuario.png" alt="">
     <form action="ServiceLogin" method="post">
-
-        <label>Usuario</label>
+        <label>Usuário</label>
         <input type="text" name="txtusuario" required>
-
+ 
         <label>Senha</label>
         <input type="password" name="txtsenha" required>
-
+ 
         <input type="submit" value="Logar">
         <a href="cadastrousuario.html"> Cadastrar </a>
+ 
+    </form>
 </body>
 </html>
