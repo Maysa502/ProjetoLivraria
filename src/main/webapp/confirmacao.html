@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria - Cadastro de Livros</title>
+
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        header{
+            background-color: #022335;
+            color:white;
+            font-family: verdana;
+        }
+        #areausuario{
+            padding:10px;
+            border-bottom: 1px solid silver;
+            display: flex;
+            justify-content: space-between;
+        }
+        #areapesquisa{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            border-bottom: 1px solid silver;
+        }
+        #localizacao img{
+            width: 12px;
+            height: 20px;
+        }
+        #usuario img{
+            height: 16px;
+            width: 16px;
+        }
+        #areapesquisa img{
+            width: 100px;
+            height: 80px;
+        }
+        #carrinho img{
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        form img{
+            width: 16px !important;
+            height: 16px !important;
+        }
+
+        form{
+            background-color: white;
+            padding:5px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+        input[type=text]{
+            width: 700px;
+            border:0px;
+            padding: 10px;
+            outline:none;
+        }
+        input[type="submit"]{
+            background-color: rgba(235, 201, 5, 0.72);
+            color:black;
+            border: 0px;
+            font-size: 13pt;
+            padding: 10px;
+        }
+        #carrinho{
+            background-color: white;
+            padding: 15px;
+            color:black !important
+        }
+        #areamenu{
+            padding:15px;
+            text-align: center;
+        }
+        #areamenu a{
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        #areamenu a:hover{
+            color:goldenrod
+        }
+        footer{
+            background-color: #022335;
+            color:white;
+            font-family: verdana;
+            padding: 40px;
+        }
+        #rodape h2{
+            color:goldenrod
+        }
+        #rodape{
+            line-height: 30px;
+            display: flex;
+            justify-content:space-between;
+        }
+        footer a{
+            color:white;
+            text-decoration: none;
+        }
+        #contato a{
+            display: flex;
+            align-items: center;
+        }
+        #contato img{
+            width: 24px;
+            height: 24px;
+            
+        }
+        #generos a{
+            display: block;
+        }
+        #generos{
+            width: 500px;
+        }
+        #copy{
+            text-align: center;
+            padding:20px;
+            border-top: 1px solid silver;
+        }
+        content form{
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        content form label{
+            font-family: verdana;
+            font-size:12pt;
+            font-weight: bold;
+            display: block;
+        }
+        content form input{
+            width: 100% !important;
+            padding:10px !important;
+            border-bottom: 1px solid silver !important;
+            margin-bottom: 10px;
+            
+        }
+        content form select{
+            width: 50%;
+            padding: 10px;
+            border: 0px;
+            border-bottom: 1px solid silver;
+            margin-bottom: 10px;
+        }
+        content form textarea{
+            width: 100%;
+            height:250px;
+            font-family: verdana;
+            font-size: 10pt;
+            resize:none;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        content form input[type=submit]{
+            width: 120px !important;
+            margin-left:40%;
+        }
+        .titulo{
+        	font-family:verdana;
+        	font-size:20pt;
+        	text-align:center;
+        	margin-top:100px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <div id="areausuario">
+            <div id="localizacao">
+                <img src="localizacao.png" alt="">
+                Localização da Loja
+            </div>
+            <div id="usuario">
+                <img src="login.png" alt="">
+                Logar / Cadastrar
+            </div>
+        </div>
+
+
+
+
+        <div id="areapesquisa">
+            <img src="logo.png" alt="">
+            <form action="ServiceSearch" method="get">
+                <img src="lupa.png" alt="">
+                <input type="text" placeholder="Pesquise seu livro aqui">
+                <input type="submit" value="BUSCAR">
+            </form>
+
+            <div id="carrinho"><img src="carrinho.png" alt="">R$ 0,00</div>
+
+        </div>
+        <div id="areamenu">
+
+            <nav>
+                <a href="HOME">HOME</a>
+                <a href="#">ROMANCE</a>
+                <a href="#">AVENTURA</a>
+                <a href="#">TERROR</a>
+                <a href="#">FANTASIA</a>
+                <a href="#">SUSPENSE</a>
+                <a href="#">DRAMA</a>
+                <a href="#">AÇAO</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <content>
+        <div id="painel"><img src="cadastro2.png" alt=""></div>
+        <h2 class="titulo">Livro cadastrado com sucesso!</h2>
+        
+      
+    </content>
+
+
+
+
+
+    <footer>
+
+        <div id="rodape">
+            <div id="contato">
+                <h2>Nossos Contatos</h2>
+                (11) 5632-9968 | 9956-6695 <br>
+                Av. Doutor Paulo Roberto, 78 - Jardim Novo - São Paulo - SP <br>
+                <a href="https://wa.me/5511995689958"><img src="whatsapp3.png" alt="">(11) 99568-9958</a>
+            </div>
+
+            <div id="generos">
+                <h2>Generos</h2>
+                <nav>
+                    <a href="HOME">HOME</a>
+                    <a href="#">ROMANCE</a>
+                    <a href="#">AVENTURA</a>
+                    <a href="#">TERROR</a>
+                    <a href="#">FANTASIA</a>
+                    <a href="#">SUSPENSE</a>
+                    <a href="#">DRAMA</a>
+                    <a href="#">AÇAO</a>
+                </nav>
+
+            </div>
+        </div>
+
+        <div id="copy">
+            ©Copyright-todos os direitos reservados | design by <a href="https://github.com/edilsonsilva/">Edilson Silva</a></div>
+
+    </footer>
+</body>
+</html>

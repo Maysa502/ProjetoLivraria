@@ -92,7 +92,7 @@ public class DAOLivro extends Conexao implements CRUDLivraria<Livro> {
 		
 		try {
 			if(abrirConexao()) {
-				String sql = "Select * from livros where idlivro=? or titulo=?";
+				String sql = "Select * from livro where idlivro=? or titulo=?";
 				pst = con.prepareStatement(sql);
 				
 				pst.setInt(1, dados.getIdlivro());
@@ -101,13 +101,13 @@ public class DAOLivro extends Conexao implements CRUDLivraria<Livro> {
 				rs = pst.executeQuery();
 				if(rs.next()) {
 					liv = new Livro();
-					liv.setIdlivro(rs.getInt(0));
-					liv.setTitulo(rs.getString(1));
-					liv.setGenero(rs.getString(2));
-					liv.setSinopse(rs.getString(3));
-					liv.setAutor(rs.getString(4));
-					liv.setPreco(rs.getDouble(5));
-					liv.setCapa(rs.getString(6));
+					liv.setIdlivro(rs.getInt(1));
+					liv.setTitulo(rs.getString(2));
+					liv.setGenero(rs.getString(3));
+					liv.setSinopse(rs.getString(4));
+					liv.setAutor(rs.getString(5));
+					liv.setPreco(rs.getDouble(6));
+					liv.setCapa(rs.getString(7));
 					
 				}
 			}

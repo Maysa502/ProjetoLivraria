@@ -1,23 +1,24 @@
-package br.com.weblivraria.pages;
+package br.com.weblivraria.services;
 
 import java.io.IOException;
 
 import br.com.weblivraria.dao.DAOLivro;
+import br.com.weblivraria.dominio.Livro;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Home
+ * Servlet implementation class ServiceLivro
  */
-public class Home extends HttpServlet {
+public class ServiceLivro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public ServiceLivro() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -162,10 +163,10 @@ public class Home extends HttpServlet {
 				+ "            justify-content: center;\r\n"
 				+ "        }\r\n"
 				+ "        .livro{\r\n"
-				+ "            width: 90%;\r\n"
+				+ "            width: 15%;\r\n"
 				+ "           \r\n"
 				+ "            border: 1px solid whitesmoke;\r\n"
-				+ "            padding: 20px;\r\n"
+				+ "            padding: 50px;\r\n"
 				+ "        }\r\n"
 				+ "        .livro img{\r\n"
 				+ "            width: 100%;\r\n"
@@ -174,7 +175,7 @@ public class Home extends HttpServlet {
 				+ "        }\r\n"
 				+ "        .livro h4{\r\n"
 				+ "            font-family: Verdana;\r\n"
-				+ "            font-size: 10pt;\r\n"
+				+ "            font-size: 14pt;\r\n"
 				+ "\r\n"
 				+ "        }\r\n"
 				+ "        .livro p{\r\n"
@@ -188,9 +189,48 @@ public class Home extends HttpServlet {
 				+ "\r\n"
 				+ "\r\n"
 				+ "\r\n"
-				+ "#listalivros a {"
-				+ "width:20%; text-decoration:none;color:black"
-				+ " }   </style>\r\n"
+				+ ".detalhe{\r\n"
+				+ "    display: flex;\r\n"
+				+ "    width: 1000px;\r\n"
+				+ "    margin-left: auto;\r\n"
+				+ "    margin-right: auto;margin-bottom:20px\r\n"
+				+ "\r\n"
+				+ "}\r\n"
+				+ ".detalhe img{\r\n"
+				+ "    width: 500px;\r\n"
+				+ "    height: 600px;\r\n"
+				+ "}\r\n"
+				+ ".detalhe .item{\r\n"
+				+ "    padding: 20px;\r\n"
+				+ "\r\n"
+				+ "}\r\n"
+				+ ".detalhe .item h4{\r\n"
+				+ "    font-family: Verdana;\r\n"
+				+ "    font-size: 20pt;\r\n"
+				+ "\r\n"
+				+ "}\r\n"
+				+ ".detalhe .item h5{\r\n"
+				+ "    margin: 0px;\r\n"
+				+ "    font-family: Verdana;\r\n"
+				+ "    font-size: 10pt;\r\n"
+				+ "}\r\n"
+				+ ".detalhe .item .sinopse{\r\n"
+				+ "    font-family: Verdana;\r\n"
+				+ "    font-size: 11pt;\r\n"
+				+ "    line-height: 25px;\r\n"
+				+ "} .detalhe .item .preco{\r\n"
+				+ "    font-family: Verdana;\r\n"
+				+ "    font-size: 20pt;\r\n"
+				+ "    font-weight: bold;\r\n"
+				+ "    color: olive;    \r\n"
+				+ "} "
+				+ ".pag{"
+				+ "background-color:olive;"
+				+ "color:white;"
+				+ "padding:15px;"
+				+ "text-decoration:none;"
+				+ "font-family:verdana;"
+				+ "}</style>\r\n"
 				+ "</head>\r\n"
 				+ "<body>\r\n"
 				+ "    <header>\r\n"
@@ -246,20 +286,30 @@ public class Home extends HttpServlet {
 				+ "        <h2>Nossos Produtos</h2>\r\n"
 				+ "        <div id=\"listalivros\">\r\n"
 				;
+		
+				String livro_id = request.getParameter("id");
 				String conteudo ="";
 				DAOLivro dlivro = new DAOLivro();
-				for (int i = 0; i < dlivro.listar().size() ; i++) {
+				Livro liv = new Livro();
+				liv.setIdlivro(Integer.parseInt(livro_id));
+				liv = dlivro.pesquisar(liv);
 				
 				
-				conteudo+= "<a href=ServiceLivro?id="+dlivro.listar().get(i).getIdlivro()+"> <div class=\"livro\">\r\n"
-				+ "                <img src="+dlivro.listar().get(i).getCapa()+" alt=\"\">\r\n"
-				+ "                <h4>"+dlivro.listar().get(i).getTitulo()+"</h4>\r\n"
-				+ "                <p class=\"preco\"> R$ "+dlivro.listar().get(i).getPreco()+"</p>\r\n"
+				
+				
+				conteudo+= " <div class=\"detalhe\">\r\n"
+				+ "                <img src="+liv.getCapa()+" alt=\"\">\r\n"
+				+ "               <div class=item> <h4>"+liv.getTitulo()+"</h4>\r\n"
+				+ "                <h5>"+liv.getAutor()+"</h5>\r\n"
+				+ "                <h5>"+liv.getGenero()+"</h5>\r\n"
+				+ "                <p class=sinopse>"+liv.getSinopse()+"</p>\r\n"
+				+ "                <p class=\"preco\"> R$ "+liv.getPreco()+"</p> "
+				+ "<a href= ServicePagamento?id="+liv.getIdlivro()+" class=pag>IR PARA O PAGAMENTO</a></div> \r\n"
 				+ "            </div> </a>\r\n"
 				+ "\r\n"
 				+ "            \r\n"
 				;
-				}
+				
 				
 				pagina+= conteudo;
 		
@@ -312,4 +362,54 @@ public class Home extends HttpServlet {
 		response.getWriter().append(pagina);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String titulo = request.getParameter("txtTitulo");
+		String genero = request.getParameter("cboGenero");
+		String sinopse = request.getParameter("txtSinopse");
+		String autor = request.getParameter("txtAutor");
+		String preco = request.getParameter("txtPreco");
+		String capa = request.getParameter("txtCapa");
+		
+		//instância da classe Livro
+		Livro lv = new Livro();
+		//passando os dados para o objeto livro(lv)
+		lv.setTitulo(titulo);
+		lv.setGenero(genero);
+		lv.setSinopse(sinopse);
+		lv.setAutor(autor);
+		lv.setPreco(Double.parseDouble(preco));
+		lv.setCapa(capa);
+		//instância da camada DAO para efetuar o cadastro do livro
+		DAOLivro dv = new DAOLivro();
+		String result = dv.cadastrar(lv);
+		
+		if(result.equals("Cadastro realizado")) {
+			response.sendRedirect("confirmacao.html");
+		}
+		else {
+			response.getWriter().append(result);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				
+		
+		
+	}
+
 }
+
+
+
+
+
